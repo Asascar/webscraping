@@ -7,3 +7,6 @@ venv/
 
 # Ignore driver
 geckodriver.exe
+
+#ignore material final
+materiamidia.xlsx
