@@ -6,7 +6,7 @@ from scrappings.vejascrapping import vejascrapping
 from openpyxl import load_workbook
 from selenium import webdriver
 
-wb = load_workbook("C:/Projetos/PythonSelenium/Materiamidia.xlsx")
+wb = load_workbook("Materiamidia.xlsx")
 
 options = webdriver.ChromeOptions()
 options.add_argument("--headless")
