@@ -17,8 +17,6 @@ def folhascrapping(item,ws,browser):
     try:
         if "/2021/" in elem.get_attribute("href"):
           if pesq in elem.text:
-              print(elem.get_attribute("href"))
-              print(elem.text)
               valores = [
                 (elem.text,elem.get_attribute("href"),'FOLHA'),
               ]

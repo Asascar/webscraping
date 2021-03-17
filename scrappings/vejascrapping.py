@@ -17,8 +17,6 @@ def vejascrapping(item,ws,browser):
     try:
       if elem.text != "":
         if pesq in elem.text:
-            print(elem.get_attribute("href"))
-            print(elem.text)
             if elem.text == "":
               break
             valores = [

@@ -18,10 +18,6 @@ def g1scrapping(item,ws,browser):
   for elem in text_sections:
       if "%2F2021%" in elem.get_attribute("href"):
         if (f'{pesqmais}') or (f'{pesqtraco}') in elem.get_attribute("href"):
-            print(elem.get_attribute("href"))
-            print(elem.text)
-            if elem.text == "":
-              break
             valores = [
               (elem.text,elem.get_attribute("href"),'G1'),
             ]

@@ -15,8 +15,6 @@ def epocascrapping(item,ws,browser):
 
   for elem in text_sections:
       if pesq in elem.text:
-          print(elem.get_attribute("href"))
-          print(elem.text)
           valores = [
              (elem.text,elem.get_attribute("href"),'EPOCA',),
           ]
