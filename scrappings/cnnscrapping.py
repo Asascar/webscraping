@@ -1,21 +1,9 @@
 import time
 from openpyxl import load_workbook
-from openpyxl.descriptors import MinMax, Sequence
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
 
-def cnnscrapping(item,wb,browser):
-  try:
-    ws = wb[item]
-  except:
-    wb.create_sheet(item)
-    ws = wb[item]
+def cnnscrapping(item,ws,browser):
   base_url = f'https://www.cnnbrasil.com.br/search?q={item}'
   pesq = f'{item}'
-  pesqmais = pesq.replace(" ","+")
-  pesqtraco = pesq.replace(" ","-")
-  
-
   browser.get(base_url)
   time.sleep(10)
 

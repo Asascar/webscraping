@@ -1,21 +1,11 @@
 import time
 from openpyxl import load_workbook
-from openpyxl.descriptors import MinMax, Sequence
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
 
-def g1scrapping(item,wb,browser):
-  try:
-    ws = wb[item]
-  except:
-    wb.create_sheet(item)
-    ws = wb[item]
+def g1scrapping(item,ws,browser):
   base_url = f'https://g1.globo.com/busca/?q={item}'
   pesq = f'{item}'
   pesqmais = pesq.replace(" ","+")
   pesqtraco = pesq.replace(" ","-")
-  
-
   browser.get(base_url)
   time.sleep(1)
 

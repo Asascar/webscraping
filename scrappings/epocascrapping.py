@@ -1,19 +1,9 @@
 import time
 from openpyxl import load_workbook
-from openpyxl.descriptors import MinMax, Sequence
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
 
-def epocascrapping(item,wb,browser):
-  try:
-    ws = wb[item]
-  except:
-    wb.create_sheet(item)
-    ws = wb[item]
+def epocascrapping(item,ws,browser):
   base_url = f'https://epoca.globo.com/busca/?q={item}'
   pesq = f'{item}'
-  
-
   browser.get(base_url)
   time.sleep(1)
 
