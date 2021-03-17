@@ -19,8 +19,12 @@ def cnnscrapping(item,ws,browser):
           if pesq in elem.text:
               if elem.text == "":
                 break
+              mes = elem.get_attribute("href").split("/")[5]
+              ano = elem.get_attribute("href").split("/")[4]
+              dia = elem.get_attribute("href").split("/")[6]
+              data = f'{dia}/{mes}/{ano}'
               valores = [
-                (elem.text,elem.get_attribute("href"),'CNN'),
+                (elem.text,elem.get_attribute("href"),'CNN',data),
               ]
               for linha in valores:
                 ws.append(linha)

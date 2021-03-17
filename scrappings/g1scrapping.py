@@ -18,8 +18,15 @@ def g1scrapping(item,ws,browser):
   for elem in text_sections:
       if "%2F2021%" in elem.get_attribute("href"):
         if (f'{pesqmais}') or (f'{pesqtraco}') in elem.get_attribute("href"):
+            spliter = elem.get_attribute("href").split('/')
+            spliter = spliter[4].split('%2F')
+            text = spliter[-1]
+            text = text.replace('-', ' ')
+            limite = text.find('.ghtml')
+            text = text[:limite]
+            data = f'{spliter[-2]}-{spliter[-3]}-{spliter[-4]}'
             valores = [
-              (elem.text,elem.get_attribute("href"),'G1'),
+              ((elem.text if elem.text != "" else text),elem.get_attribute("href"),'G1', data),
             ]
             for linha in valores:
               ws.append(linha)

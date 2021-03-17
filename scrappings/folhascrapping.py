@@ -17,8 +17,13 @@ def folhascrapping(item,ws,browser):
     try:
         if "/2021/" in elem.get_attribute("href"):
           if pesq in elem.text:
+              ano = elem.text.find('.2021')
+              dia = ano -6
+              ano = ano + 5
+              data = elem.text[dia:ano]
+              data = data.replace('.', '-')
               valores = [
-                (elem.text,elem.get_attribute("href"),'FOLHA'),
+                (elem.text,elem.get_attribute("href"),'FOLHA', data),
               ]
               for linha in valores:
                 ws.append(linha)
