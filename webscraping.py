@@ -5,6 +5,8 @@ from scrappings.g1scrapping import g1scrapping
 from scrappings.vejascrapping import vejascrapping
 from openpyxl import load_workbook
 from selenium import webdriver
+from utils import organizacao_midias 
+from utils import compilacao
 
 wb = load_workbook("Materiamidia.xlsx")
 
@@ -18,12 +20,14 @@ dicionario = [
 
 
 for item in dicionario:
+  worksheet = organizacao_midias(item)
   try:
-    ws = wb[item]
+    ws = wb[worksheet]
   except:
-    wb.create_sheet(item)
-    ws = wb[item]
-  linha = ("Titulo","Link","Midia","Data")
+    wb.create_sheet(worksheet)
+    ws = wb[worksheet]
+  if item == worksheet or item == "Superintendência de Seguros Privados" or item == "AGROS":
+    linha = ("Titulo","Link","Midia","Data")
   ws.append(linha)
   folhascrapping(item,ws,browser)
   cnnscrapping(item,ws,browser)
@@ -31,4 +35,8 @@ for item in dicionario:
   g1scrapping(item,ws,browser)
   vejascrapping(item,ws,browser)
   wb.save("Materiamidia.xlsx")
+compilacao(dicionario,wb)
 print("Finish")
+
+
+
